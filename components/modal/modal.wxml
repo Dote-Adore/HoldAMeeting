@@ -1,0 +1,14 @@
+<view wx:if="{{showModal}}" animation="{{bg_anim}}" class="modal_BG" style="width:{{windowWidth}}px;height: 100%">
+</view>
+<view  wx:if="{{showModal}}" style="width:100%;height: 100%;position:fixed;top:0;left:0;z-index:30">
+  <view animation="{{modal_body_anim}}" class="modal_body" style="margin-top:30%">
+    <view class="modal_title">{{title}}</view>
+    <view class="modal_contain">{{contain}}</view>
+    <image wx:if="{{imageSrc!=''}}" src="{{imageSrc}}" mode="widthFix" style="width:100%;margin-top:10px"></image>
+    <view class="modal_foot">
+      <view class="modal_btn" bindtap="tapCancel">取消</view>
+      <!-- <view class="modal_btn modal_confirm" bindtap="tapConfirm">确定</view> -->
+      <button open-type="getUserInfo" bindgetuserinfo="tapConfirm" class="modal_btn modal_confirm">确定</button>
+    </view>
+  </view>
+</view>

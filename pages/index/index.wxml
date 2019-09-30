@@ -1,0 +1,22 @@
+<include src="/components/customNavigation_index.wxml"></include>
+<image class="bg_img" src="/resoures/images/login.png" mode="widthFix"></image>
+<view class="loginDiv">
+  <view>用户名</view>
+  <view class="loginInput" id="username">
+    <image mode="widthFix" src="/resoures/icon/user.png" class="loginIcon"></image>
+    <input bindinput="inputUserName"></input>
+  </view>
+  <view>密码</view>
+    <view class="loginInput" id="password">
+    <image mode="widthFix" src="/resoures/icon/password.png" class="loginIcon"></image>
+    <input password="true" bindinput="inputPassword"></input>
+  </view>
+
+  <view style="width:100%; height:16px;">  <text class="register" bindtap="tapRegister">没有账户？注册一个</text> </view>
+  <view class="confirmBtn" bindtap="tapLogin">登录<include src="/components/loadingBtn/loadingBtn.wxml"/></view>
+
+</view>
+
+<include src="/components/message/message.wxml"></include>
+
+<c-modal bindtapconfirm="modalConfirm" title="尚未进行授权" imageSrc="/resoures/images/authorize.png" contain="为了能够正常使用小程序功能，您需要对此进行授权" showCModal="{{showCModal}}"/>

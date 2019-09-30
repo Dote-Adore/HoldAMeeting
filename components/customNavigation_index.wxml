@@ -1,0 +1,5 @@
+<view class="empty_custom" style="height:{{navH}}px">
+  <view class="custom flex_center" style="padding-top:{{navH-35}}px; text-align:center;font-size:18px;color:white">
+    <text>开会啦</text>
+  </view>
+</view>

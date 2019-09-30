@@ -1,0 +1,85 @@
+page{
+  color: #303133;
+}
+.page{
+  padding: 20px;
+}
+.greetings{
+  font-size: 24px;
+  color: #909399;
+  margin-bottom: 10px;
+}
+.time{
+  font-size: 23px;
+  color: #606266;
+}
+.meettingCard{
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 0 5px #c9c9c9;
+}
+#detailTime{
+  color: #409EFF;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+#address{
+  font-size: 16px;
+  margin-top: 5px;
+}
+#title{
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+#leader{
+  font-size: 15px;
+  margin-bottom: 0px;
+  color: #606266;
+}
+#participantsNum{
+  font-size: 15px;
+  color: #C0C4CC;
+  margin-top: 5px;
+}
+.details{
+  font-size: 19px;
+  margin: 10px;
+
+}
+.cardBG{
+  position: absolute;
+  opacity: 0.5;
+  width: 160px;
+  right: -20px;
+  bottom: -20px;
+}
+
+
+.bottomBtn{
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  width: 100%;
+}
+.addMeetingBtn{
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  background-color: #409EFF;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px #C0C4CC;
+  color: white;
+  text-align: center;
+  font-size: 35px;
+  line-height: 55px;
+  vertical-align: middle;
+}
+
+.addMeetingBtn:active{
+  opacity: 0.7;
+}

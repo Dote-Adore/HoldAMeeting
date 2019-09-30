@@ -1,0 +1,27 @@
+@import "/components/message/message.wxss";
+@import "/utils/utils.wxss";
+.page{
+  padding: 20px;
+    /* height: 100%; */
+}
+.title{
+  font-size: 35px;
+  margin-bottom: 5px;
+}
+.agreement{
+  color:#909399;
+  font-size: 13px;
+}
+.inputDiv{
+  font-size: 23px;
+  margin-top: 20px;
+  color: #606266;
+  font-weight: lighter
+}
+.input{
+  font-size: 17px;
+  height: 40px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #DCDFE6;
+}

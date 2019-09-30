@@ -1,0 +1,7 @@
+
+<!-- 显示一些信息 -->
+<view  animation="{{messageAnimation}}" wx:if="{{showMessage}}" class="message" style="top:{{messageTop}}px">
+  <label wx:if="{{messageType==='warning'}}" class="messageContain"><image class="messageIcon" src="/components/message/icon/warning.png"></image>{{messageContain}}</label>
+  <label wx:if="{{messageType==='success'}}" style="background-color:#09bb07" class="messageContain"><image class="messageIcon" src="/components/message/icon/success.png"></image>{{messageContain}}</label>
+  <label wx:if="{{messageType==='error'}}" style="background-color:#F56C6C" class="messageContain"><image class="messageIcon" src="/components/message/icon/error.png"></image>{{messageContain}}</label>
+</view> 

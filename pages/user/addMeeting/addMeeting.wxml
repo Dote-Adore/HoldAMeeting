@@ -1,0 +1,40 @@
+<view class="tips">
+  <view class="stepImg">STEP1</view>请填写会议概要</view>
+<view class="inputContain">
+  <view class="inputTitle"><text style="color:red">*</text>会议名称</view>
+  <input bindinput="inputName"></input>
+</view>
+<view class="inputContain">
+  <view class="inputTitle"><text style="color:red">*</text>地址</view>
+  <input bindinput="inputAddress"></input>
+</view>
+<view class="inputContain">
+  <view class="inputTitle"><text style="color:red">*</text>开会时间</view>
+  <picker mode="date" value="{{meetingDate}}" start="{{currentDate}}" bindchange="chooseDate">
+    {{meetingDate}}
+  </picker>
+  <picker mode="time" value="{{meetingTime}}" bindchange="chooseTime">
+    {{meetingTime}}
+  </picker>
+</view>
+<view class="inputContain" style="margin-bottom:60px;">
+  <view class="inputTitle"> 会议简介</view>
+  <textarea bindinput="inputIntroduction"></textarea>
+</view>
+
+<view class="tips">
+  <view class="stepImg">STEP2</view>请选择与会者需填写的信息</view>
+
+<view class="options">
+  <view wx:for="{{options}}" wx:key="{{index}}" style="background:{{item.value? 'linear-gradient(to right,#8BB8FA,#409EFF)':'white'}};color:{{item.value? 'white':'#303133'}}" class="optionItem" data-idx="{{index}}" bindtap="toSelected">
+    {{item.title}}
+  </view>
+  <view class="confirmBtn" bindtap="bindConfirmBtn">提交</view>
+</view>
+
+
+
+<include src="/components/message/message.wxml"></include>
+
+
+<c-modal bindtapconfirm="postForm" title="确定提交吗" contain="提交后信息将无法更改，请确认无误后提交" showCModal="{{showCModal}}"/>

@@ -1,0 +1,23 @@
+ /* 确定按钮 */
+.confirmBtn {
+  margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    line-height: 37px;
+    height: 37px;
+    width: 90%;
+    border-radius: 20px;
+    background: linear-gradient(to right,#8BB8FA,#409EFF);
+}
+.confirmBtn:active{
+  opacity: 0.7;
+}
+.loadingIcon{
+  position: relative;
+  width: 0px;
+  top: 5px;
+  margin-left: 5px;
+}

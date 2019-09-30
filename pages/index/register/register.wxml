@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="title">用户注册</view>
+  <view class="agreement">注册即代表阅读并同意服务协议</view>
+  <view class="inputDiv">用户名
+    <input class="input" bindinput="bindUserName"></input>
+  </view>
+    <view class="inputDiv">姓名
+    <input class="input"  bindinput="bindName"></input>
+  </view>
+  <view class="inputDiv">密码
+    <input password="true" class="input"  bindinput="bindPassword"></input>
+  </view>
+  <view class="confirmBtn" style="font-size:16px;border-radius:10px;margin-top:40px;padding:5px;" bindtap="tapRegister">注册
+  <include src="/components/loadingBtn/loadingBtn.wxml"/></view>
+</view>
+
+<include src="/components/message/message.wxml"></include>
+
+<c-modal bindtapconfirm="modalConfirm" title="尚未进行授权" imageSrc="/resoures/images/authorize.png" contain="为了能够正常使用小程序功能，您需要对此进行授权" showCModal="{{showCModal}}"/>

@@ -1,0 +1,59 @@
+@import "/components/message/message.wxss";
+@import "/utils/utils.wxss";
+
+page{
+  color: #909399;
+  height: 100%;
+}
+.loginDiv{
+  font-size: 14px;
+  width: 65%;
+  height: 270px;
+  background-color: white;
+  margin:auto;
+  margin-top:120px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px 2px #cbcfd6;
+  -webkit-box-shadow:0px 0px 10px #cbcfd6;
+  padding: 30px 30px 30px 30px;
+}
+.bg_img{
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  z-index: -10;
+}
+.title{
+ text-align: center;
+ color:  #606266;
+ font-size: 20px;
+ margin-bottom: 10px;
+}
+.loginIcon{
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 0 10px;
+  float: left;
+}
+.loginInput{
+  color: #909399;
+  margin: 10px 0 30px 0;
+  padding:10px 0 10px 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E4E7ED;
+  border-radius: 5px;
+}
+#password{
+  margin-bottom: 10px;
+}
+.loginInput input{
+  width: 70%;
+}
+.register{
+  font-size: 12px;
+  float: right;
+  color: #909399;
+  padding-right: 10px;
+}

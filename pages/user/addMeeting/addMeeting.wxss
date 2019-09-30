@@ -1,0 +1,72 @@
+@import "/utils/utils.wxss";
+page{
+  margin: 40rpx;
+  width: 670rpx;
+}
+
+.tips{
+  color: #606266;
+  font-size: 25px;
+  margin: 20px 0 20px 0;
+  position: relative;
+}
+.stepImg{
+  position: absolute;
+  font-size: 45px;
+  top:-30px;
+  font-weight: bolder;
+  color: rgb(187, 221, 255);
+  z-index: -10;
+  opacity: 0.7;
+}
+.inputContain{
+  font-size: 16px;
+  color: #606266;
+  width: 670rpx;
+  padding: 10px;
+}
+.inputTitle{
+  width: 180rpx;
+  float: left;
+}
+input{
+  width: 60%;
+  border-width: 0  0 1px 0;
+  border-style: solid;
+  border-color: #DCDFE6;
+
+}
+picker{
+  display: inline-block;
+  margin-left: 10px;
+}
+textarea{
+  width: 60%;
+  margin-left: 180rpx;
+  border: solid 1px #DCDFE6;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.options{
+  text-align:center;
+  display: block;
+  margin-bottom: 40px;
+}
+
+.optionItem{
+ height: 40px;
+  line-height: 40px;
+  box-shadow: 0 0px 5px #E4E7ED;
+  background-color: white;
+  padding: 0 10px 0 10px;
+  margin: 10px;
+  width: auto;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px #E4E7ED solid;
+  color: #606266;
+}
+.optionItem:active{
+  background-color: rgb(199, 227, 255);
+}

@@ -1,0 +1,27 @@
+.message{
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  opacity: 1;
+  padding: auto;
+  text-align: center;
+  left: 0;
+}
+.messageContain{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  line-height: 23px;
+  height: 23px;
+  padding:3px 30px 3px 30px;
+  border-radius: 5px;
+  background-color: #E6A23C;
+}
+.messageIcon{
+  float:left;
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+}

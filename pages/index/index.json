@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "c-modal":"/components/modal/modal"
+  },
+    "navigationBarTitleText": "开会吧",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+    
+}

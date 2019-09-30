@@ -1,0 +1,1 @@
+<image animation="{{btnLoadingAnim}}" mode="widthFix" class="loadingIcon" src="/resoures/icon/loading.gif" style="position: relative;width: 0px;top: 5px;margin-left: 5px;"></image>
