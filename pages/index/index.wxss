@@ -57,3 +57,7 @@ page{
   color: #909399;
   padding-right: 10px;
 }
+.autoLogin{
+  float: left;
+ 
+}

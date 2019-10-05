@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "/components/message/message.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -8,4 +9,71 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+/* 自定义单元框 */
+
+radio .wx-radio-input {
+  border-radius: 50%;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+/* 选中后的样式 （可根据设计稿需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  font-size: 26rpx; /* 对勾大小 26rpx */
+  color: #fff; /* 对勾颜色 */
+  background: #409eff;
+  border-color: #409eff;
+}
+
+.bottomBtnDiv {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.RadiusBtn {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px #c0c4cc;
+  color: white;
+  text-align: center;
+  font-size: 35px;
+  line-height: 55px;
+  vertical-align: middle;
+  background: linear-gradient(to right, #8bb8fa, #409eff);
+}
+.color-blue{
+  color: #409eff;
+}
+.RadiusBtn image {
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+}
+
+.RadiusBtn:active {
+  opacity: 0.7;
+}
+
+.bottonItem {
+  vertical-align: middle;
+  width: 60px;
+  display: inline-block;
+  text-align: center;
+  color: #909399;
+  font-size: 12px;
+}

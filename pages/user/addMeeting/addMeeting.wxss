@@ -12,8 +12,8 @@ page{
 }
 .stepImg{
   position: absolute;
-  font-size: 45px;
-  top:-30px;
+  font-size: 50px;
+  bottom: -5px;
   font-weight: bolder;
   color: rgb(187, 221, 255);
   z-index: -10;
@@ -40,13 +40,13 @@ picker{
   display: inline-block;
   margin-left: 10px;
 }
-textarea{
+/* textarea{
   width: 60%;
   margin-left: 180rpx;
   border: solid 1px #DCDFE6;
   border-radius: 5px;
   padding: 10px;
-}
+} */
 
 .options{
   text-align:center;
@@ -69,4 +69,17 @@ textarea{
 }
 .optionItem:active{
   background-color: rgb(199, 227, 255);
+}
+.textarea{
+  width: 60%;
+  margin-left: 180rpx;
+  border: solid 1px #DCDFE6;
+  border-radius: 5px;
+  padding: 10px;
+  height: 120px;
+
+}
+textarea{
+  width: 100%;
+  height: 100%;
 }

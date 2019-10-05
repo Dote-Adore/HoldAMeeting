@@ -60,6 +60,7 @@ function mylogin(currentPage, func) {
           "userName": currentPage.data.userName,
           "password": currentPage.data.password,
           "code": res.code,
+          "autoLogin":currentPage.data.autoLogin
         },
         success: res => {
           typeof func == "function" && func(res.data)
@@ -85,8 +86,33 @@ function registerAccount() {
     }
   })
 }
+
+//自动登录
+function autoLogin(func){
+  const app = getApp()
+  wx.login({
+    success: res => {
+      wx.request({
+        url: app.globalData.url + '/login/autologin',
+        method: "post",
+        header: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        data: {
+          "code": res.code
+        },
+        success: res => {
+          typeof func == "function" && func(res.data)
+        }
+      })
+    }
+  })
+}
+
+
 module.exports = {
   getUserWxInfo: getUserWxInfo,
   authorization: authorization,
-  mylogin:mylogin
+  mylogin:mylogin,
+  autoLogin:autoLogin
 }

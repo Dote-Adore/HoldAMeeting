@@ -4,7 +4,10 @@
     "pages/logs/logs",
     "pages/index/register/register",
     "pages/user/user",
-    "pages/user/addMeeting/addMeeting"
+    "pages/user/addMeeting/addMeeting",
+    "pages/user/meetingDetails/meetingDetails",
+    "pages/joinMeeting/joinMeeting",
+    "pages/joinMeeting/fillTable/fillTable"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,5 +15,8 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+      "c-modal": "/components/modal/modal"
+    }
 }

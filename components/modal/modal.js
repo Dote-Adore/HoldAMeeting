@@ -20,6 +20,10 @@ Component({
     imageSrc:{
       type:String,
       value:""
+    },
+    containCenter:{
+      type:Boolean,
+      value:false
     }
   },
 
@@ -38,19 +42,33 @@ Component({
     navH: app.globalData.navHeight,
     bg_anim: null,
     modal_body_anim:null,
-    showModal:false
+    showModal:false,
+    containStyle:""
   },
 
 // 当值改变时，调用
   observers: {
     'showCModal': function (showCModal) {
       var that = this
-      // 在 numberA 或者 numberB 被设置时，执行这个函数
       if(showCModal===true){
         var time = setInterval(function(){
           that._showCModal()
           clearInterval(time);
         },200)
+      }
+    },
+    'containCenter': function (containCenter) {
+      var that = this
+      // 在 numberA 或者 numberB 被设置时，执行这个函数
+      if (containCenter === true) {
+        that.setData({
+          containStyle:"text-align:center"
+        })
+      }
+      else{
+        that.setData({
+          containStyle: ""
+        })
       }
     }
   },
@@ -65,6 +83,7 @@ Component({
     },
     tapCancel(){
       console.log("用户点击取消");
+      this.triggerEvent("tapCancel")
       this._hideModal();
     },
 
@@ -89,8 +108,9 @@ Component({
         timingFunction: 'ease',
         delay: 0
       })
+      animation2.scale(1,1).step({duration:3})
       animation2.scale(1.1, 1.1).step({ duration: 70 });
-      animation2.scale(1, 1).step({ duration: 100 });
+      animation2.scale(1, 1).step({ duration: 127 });
 
       this.setData({
         bg_anim: animation.export(),
@@ -103,7 +123,7 @@ Component({
           modal_body_anim:null
         }),
         clearInterval(time);
-      },10)
+      },200)
     },
 
     _hideModal(){

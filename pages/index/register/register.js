@@ -70,15 +70,18 @@ Page({
           name:that.data.name
         },
         success:res=>{
-          if(res.data){
+          loadingBtn.hideBtnLoading(that);
+          if(res.data.success===true){
             message.showMessage(that,"success","注册成功！")
-            loadingBtn.hideBtnLoading(that);
             var time = setInterval(function(){
               wx.navigateBack({
 
               });
               clearInterval(time);
             },600)
+          }
+          else{
+            message.showMessage(that, "error", "注册失败，"+ res.data.message)
           }
         }
       })

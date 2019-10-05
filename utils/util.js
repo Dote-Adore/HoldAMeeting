@@ -27,8 +27,26 @@ const formatTime = date => {
   return [hour, minute].map(formatNumber).join(':') ;
 }
 
+const greetings = () =>{
+  var date = new Date();
+  const hour = date.getHours();
+  if(6<=hour&&hour<9)
+  return "早上好";
+  if (9 <= hour && hour<11)
+  return "上午好";
+  if (11 <= hour && hour<13)
+  return "午安"
+  if (13 <= hour && hour<18)
+  return "下午好"
+  if ((18 <= hour && hour <= 23))
+  return "晚上好"
+  if (0 <= hour && hour < 6)
+  return "夜深了"
+}
+
 module.exports = {
   formatTime: formatTime,
   formatDateAndTime: formatDateAndTime,
-  formatDate: formatDate
+  formatDate: formatDate,
+  greetings: greetings
 }

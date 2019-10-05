@@ -1,0 +1,10 @@
+<view class="tips">《{{meetingInfo.name}}》 </view>
+  <view class="meetingDetailsDiv">
+<view class="meetingDetails">于<label class="color-blue"> {{meetingInfo.meetTimeFormat}} </label>，在<label class="color-blue"> {{meetingInfo.address}} </label>开展会议</view>
+<view class="meetingDetails" id="introduction" style="margin:10px 0 10px 0">会议简介：{{meetingInfo.introduction}}</view>
+</view>
+<view  class="inputContain">当前参与人数：{{statistics.allCount}} 人</view>
+<view wx:if="{{statistics.male+statistics.female!=0}}" class="inputContain">男生: {{statistics.male}} 人</view>
+<view wx:if="{{statistics.male+statistics.female!=0}}" class="inputContain">女生: {{statistics.female}} 人</view>
+<view wx:if="{{statistics.arrangeRoom+statistics.noArrangeRoom!=0}}" class="inputContain">需要安排房间: {{statistics.arrangeRoom}} 人</view>
+<view wx:if="{{statistics.arrangeRoom+statistics.noArrangeRoom!=0}}" class="inputContain">无需安排房间: {{statistics.noArrangeRoom}} 人</view>

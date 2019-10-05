@@ -19,7 +19,9 @@
 </view>
 <view class="inputContain" style="margin-bottom:60px;">
   <view class="inputTitle"> 会议简介</view>
-  <textarea bindinput="inputIntroduction"></textarea>
+  <view class="textarea">
+  <textarea hidden="{{hideTextarea}}" bindinput="inputIntroduction"></textarea>
+  </view>
 </view>
 
 <view class="tips">
@@ -29,7 +31,7 @@
   <view wx:for="{{options}}" wx:key="{{index}}" style="background:{{item.value? 'linear-gradient(to right,#8BB8FA,#409EFF)':'white'}};color:{{item.value? 'white':'#303133'}}" class="optionItem" data-idx="{{index}}" bindtap="toSelected">
     {{item.title}}
   </view>
-  <view class="confirmBtn" bindtap="bindConfirmBtn">提交</view>
+  <view class="confirmBtn" bindtap="bindConfirmBtn">提交<include src="/components/loadingBtn/loadingBtn.wxml"/></view>
 </view>
 
 
@@ -37,4 +39,4 @@
 <include src="/components/message/message.wxml"></include>
 
 
-<c-modal bindtapconfirm="postForm" title="确定提交吗" contain="提交后信息将无法更改，请确认无误后提交" showCModal="{{showCModal}}"/>
+<c-modal bindtapCancel="cancelCModel" bindtapconfirm="confirmPost" title="确定提交吗" contain="提交后信息将无法更改，请确认无误后提交" showCModal="{{showCModal}}"/>

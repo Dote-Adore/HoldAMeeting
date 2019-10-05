@@ -1,0 +1,23 @@
+/* pages/joinMeeting/fillTable/fillTable.wxss */
+@import "/pages/user/addMeeting/addMeeting.wxss";
+
+.meetingDetails{
+  font-size: 16px;
+  color: #606266;
+  margin: 5px 0 5px 0;
+}
+/* .meetingDetailsDiv{
+  border: solid 1px #EBEEF5;
+  border-radius: 5px;
+  padding: 10px;
+
+} */
+.meetingDetails#introduction{
+  font-size: 14px;
+  color: #909399;
+  margin-bottom: 20px;
+
+}
+.meetingDetails#organizerName{
+  color: #909399;
+}

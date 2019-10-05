@@ -23,6 +23,9 @@ page{
   border-radius: 20px;
   box-shadow: 0 0 5px #c9c9c9;
 }
+.meettingCard:active{
+  size: 1.1
+}
 #detailTime{
   color: #409EFF;
   font-size: 17px;
@@ -60,26 +63,3 @@ page{
 }
 
 
-.bottomBtn{
-  position: absolute;
-  bottom: 20px;
-  left: 0px;
-  width: 100%;
-}
-.addMeetingBtn{
-  margin: auto;
-  width: 60px;
-  height: 60px;
-  background-color: #409EFF;
-  border-radius: 30px;
-  box-shadow: 5px 5px 10px #C0C4CC;
-  color: white;
-  text-align: center;
-  font-size: 35px;
-  line-height: 55px;
-  vertical-align: middle;
-}
-
-.addMeetingBtn:active{
-  opacity: 0.7;
-}

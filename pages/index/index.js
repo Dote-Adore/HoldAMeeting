@@ -18,11 +18,35 @@ Page({
     messageContain:"dsdds",
     showCModal:false,
     showBtnLoading:false,
-    btnLoadingAnim:null
+    btnLoadingAnim:null,
+    autoLogin:false
   },
   onLoad(){
-    
+    var that = this
+    myLogin.getUserWxInfo(function (res) {
+      // 如果授权登录成功，执行自动登录
+      if(res){
+        wx.showLoading({
+          title: '请稍后...',
+        })
+        myLogin.autoLogin(function(res){
+          wx.hideLoading();
+          // 如果成功，则自动登录
+          if(res.success){
+            app.globalData.user = res.data
+            wx.navigateTo({
+              url: '../user/user',
+            })
+          }
+          else{
+            // 自动登录失败
+                    }
+        });
+      }
+    })
   },
+
+  //输入
   inputUserName(e){
     this.data.userName = e.detail.value;
   },
@@ -30,6 +54,13 @@ Page({
     this.data.password = e.detail.value;
   },
 
+  // 自动登录按钮
+  bindAutoLogin() {
+    var that = this;
+    this.setData({
+      autoLogin: !that.data.autoLogin
+    })
+  },
 
   //登陆
   tapLogin(){
@@ -88,4 +119,22 @@ Page({
       }
     });
   },
+
+
+// 点击加入会议的按钮
+  bindJoinMeeting(){
+    // 如果没有进行授权
+    if(app.globalData.userInfo===null){
+
+      this.setData({
+        showCModal:true
+      })
+      return;
+    }
+    else{
+      wx.navigateTo({
+        url:'../joinMeeting/joinMeeting',
+      })
+    }
+  }
 })

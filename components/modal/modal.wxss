@@ -45,3 +45,6 @@ page{
   background: linear-gradient(to right,#8BB8FA,#409EFF);
 
 }
+.modal_contain{
+  display: block;
+}

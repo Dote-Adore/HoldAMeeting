@@ -1,5 +1,6 @@
 <view class="page">
-  <view class="greetings">{{greetings}},{{user.name}}</view>
+  <view class="greetings">{{greetings}}，{{nickName}}</view>
+
   <view class="time" wx:if="{{meetingList===null}}">
   请稍后...
   </view>
@@ -8,15 +9,15 @@
   </view>
   <!-- <view class="time">今日会议</view> -->
   <view wx:for="{{meetingList}}">
-    <view class="meettingCard"  data-index="{{index}}"bindtap="bindtoDetials"  bindlongtap="bindShowQRCode">
+    <view class="meettingCard">
       <view class="details" id="detailTime">
-        {{item.meetTimeFormat}}
+        {{item.meetingDetails.meetTimeFormat}}
       </view>
       <view class="details" id="title">
-        {{item.name}}
+        {{item.meetingDetails.name}}
       </view>
       <view class="details" id="address">
-        {{item.address}}
+        {{item.meetingDetails.address}}
       </view>
       <!-- <view class="details" id="participantsNum">
         {{item.attendeeNum}}人
@@ -26,10 +27,11 @@
     </view>
   </view>
   <view class="bottomBtnDiv">
-    <view class="RadiusBtn" bindtap="bindAddMeeting">+
+    <view class="RadiusBtn" bindtap="bindScanQRCode"><image src="/resoures/icon/QR-code.png"></image>
     </view>
   </view>
 </view>
 
+<include src="/components/message/message.wxml"></include>
 
-<c-modal bindtapCancel="cancelCModel" bindtapconfirm="cancelCModel" containCenter="true" contain="ID:{{meetingCode}}" title="分享会议" imageSrc="{{QRImg}}" showCModal="{{showCModal}}"/>
+<c-modal bindtapconfirm="modalConfirm" title="{{modalTitle}}"  contain="{{modalContain}}" showCModal="{{showCModal}}" containCenter="{{false}}"/>

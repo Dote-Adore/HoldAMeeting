@@ -3,7 +3,7 @@
 <view  wx:if="{{showModal}}" style="width:100%;height: 100%;position:fixed;top:0;left:0;z-index:30">
   <view animation="{{modal_body_anim}}" class="modal_body" style="margin-top:30%">
     <view class="modal_title">{{title}}</view>
-    <view class="modal_contain">{{contain}}</view>
+    <text class="modal_contain"style="{{containStyle}}">{{contain}}</text>
     <image wx:if="{{imageSrc!=''}}" src="{{imageSrc}}" mode="widthFix" style="width:100%;margin-top:10px"></image>
     <view class="modal_foot">
       <view class="modal_btn" bindtap="tapCancel">取消</view>

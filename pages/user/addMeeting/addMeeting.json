@@ -2,5 +2,5 @@
   "usingComponents": {
     "c-modal": "/components/modal/modal"
   },
-    "navigationBarTitleText": "添加会议"
+    "navigationBarTitleText": "发起会议"
 }

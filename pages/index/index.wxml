@@ -7,16 +7,29 @@
     <input bindinput="inputUserName"></input>
   </view>
   <view>密码</view>
-    <view class="loginInput" id="password">
+  <view class="loginInput" id="password">
     <image mode="widthFix" src="/resoures/icon/password.png" class="loginIcon"></image>
     <input password="true" bindinput="inputPassword"></input>
   </view>
-
-  <view style="width:100%; height:16px;">  <text class="register" bindtap="tapRegister">没有账户？注册一个</text> </view>
-  <view class="confirmBtn" bindtap="tapLogin">登录<include src="/components/loadingBtn/loadingBtn.wxml"/></view>
-
+  <view style="width:100%; height:16px;">
+    <radio checked="{{autoLogin}}" class="register autoLogin" bindtap="bindAutoLogin">自动登录</radio>
+    <text class="register" bindtap="tapRegister">没有账户？注册一个</text> </view>
+  <view class="confirmBtn" bindtap="tapLogin">登录
+    <include src="/components/loadingBtn/loadingBtn.wxml" />
+  </view>
 </view>
 
+
+<!-- 底部按钮 -->
+<view class="bottomBtnDiv">
+  <view class="bottonItem" bindtap="bindJoinMeeting">
+    <view class="RadiusBtn"><image src="/resoures/icon/meeting.png"></image></view>
+    <view>加入会议</view>
+  </view>
+</view>
+<!-- 消息提示框 -->
 <include src="/components/message/message.wxml"></include>
 
-<c-modal bindtapconfirm="modalConfirm" title="尚未进行授权" imageSrc="/resoures/images/authorize.png" contain="为了能够正常使用小程序功能，您需要对此进行授权" showCModal="{{showCModal}}"/>
+
+<!-- 自定义模态框 -->
+<c-modal bindtapconfirm="modalConfirm" title="尚未进行授权" imageSrc="/resoures/images/authorize.png" contain="为了能够正常使用小程序功能，您需要对此进行授权" showCModal="{{showCModal}}" />

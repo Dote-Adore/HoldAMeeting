@@ -1,0 +1,2 @@
+/* pages/joinMeeting/joinMeeting.wxss */
+@import "/pages/user/user.wxss";

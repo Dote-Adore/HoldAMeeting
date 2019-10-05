@@ -1,12 +1,15 @@
 // pages/user/addMeeting/addMeeting.js
 var util = require("../../../utils/util.js")
 var message = require("../../../components/message/message.js");
+const app = getApp();
+var loadingBtn = require("../../../components/loadingBtn/loadingBtn.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    timeStamp:"",
     meetingName:"",
     address:"",
     introduction:"",
@@ -15,6 +18,7 @@ Page({
     currentDate:"",
     currentTime:"",
     showCModal:false,
+    hideTextarea:false,
     options:[
       {
         name:"aName",
@@ -50,16 +54,18 @@ Page({
         value: false,
         title: "参会时间",
       },
-    ]
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    var time = util.formatTime(new Date());
+    var timeStamp = new Date();
+    var time = util.formatTime(timeStamp);
     console.log(time);
-    var date = util.formatDate(new Date());
+    var date = util.formatDate(timeStamp);
+    this.data.timeStamp = Date.parse(timeStamp);
     this.setData({
       // meetingTime:time,
       // meetingDate:date,
@@ -117,11 +123,9 @@ Page({
       return;
     }
 
-
-
-
     this.setData({
-      showCModal:true
+      showCModal:true,
+      hideTextarea:true
     })
 
   },
@@ -137,7 +141,67 @@ Page({
   inputIntroduction(e){
     this.data.introduction = e.detail.value;
   },
-  postForm(){
+  confirmPost(){
+    this.setData({
+      hideTextarea: false
+    })
+    var that = this
+    var meetingTime = this.data.meetingDate+" "+this.data.meetingTime+":00";
+    meetingTime = Date.parse(meetingTime.replace(/-/g,'/'));
+    // 获取timeStamp；
     
+    var data = this.data
+
+    var options = this.data.options
+
+
+    var postOptions = {
+      aName: options[0].value,
+      aWorkUnit: options[1].value,
+      aIDNum: options[2].value,
+      aGender: options[3].value,
+      aPhoneNum: options[4].value,
+      aArrangeRoom: options[5].value,
+      aAttendTime: options[6].value,
+    }
+    loadingBtn.showBtnLoading(that);
+    postOptions = JSON.stringify(postOptions)
+    wx.request({
+      url: app.globalData.url + '/meeting/insert',
+      method:"POST",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      data:{
+        name:data.meetingName,
+        address:data.address,
+        meetingTime:meetingTime,
+        organizerID:app.globalData.user.id,
+        organizerName: app.globalData.user.name,
+        introduction:data.introduction,
+        createTime:data.timeStamp,
+        options:postOptions
+      },
+      success:res=>{
+        loadingBtn.hideBtnLoading(that);
+          if(res.data.success){
+            message.showMessage(that, "success","提交成功！");
+            var time = setInterval(function(){
+              wx.navigateBack({
+                
+              });
+              clearInterval(time);
+            },1000)
+          }
+          else{
+            message.showMessage(that,"error","提交失败，错误:"+ res.data.message);
+          }
+        }
+    })
+  },
+  cancelCModel(){
+    this.setData({
+      hideTextarea:false
+    })
   }
 })
