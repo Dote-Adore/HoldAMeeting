@@ -19,7 +19,8 @@ Page({
     showCModal:false,
     showBtnLoading:false,
     btnLoadingAnim:null,
-    autoLogin:false
+    autoLogin:false,
+    canShowCopy:false,
   },
   onLoad(){
     var that = this
@@ -40,12 +41,23 @@ Page({
           }
           else{
             // 自动登录失败
-                    }
+            that.data.canShowCopy = true;
+            that.getCopy();
+
+          }
         });
+      }
+      else{
+        that.data.canShowCopy = true;
+        this.getCopy();
       }
     })
   },
-
+  onShow(){
+    if(this.data.canShowCopy === true){
+      this.getCopy();
+    }
+  },
   //输入
   inputUserName(e){
     this.data.userName = e.detail.value;
@@ -136,5 +148,37 @@ Page({
         url:'../joinMeeting/joinMeeting',
       })
     }
+  },
+
+  getCopy() {
+    var that = this;
+    wx.getClipboardData({
+      success: res => {
+        console.log(res.data);
+        var copyData = res.data;
+        var data2 = copyData.substring(36, 51);
+        console.log(data2)
+        if (data2.substring(0, 3) === "id=") {
+          wx.showModal({
+            title: '检测到开口令',
+            content: '是否加入？',
+            success: res => {
+              if (res.confirm) {
+                that.bindJoinMeeting();
+              }
+              else{
+                wx.setClipboardData({
+                  data: ' ',
+                  success:res=>{
+                    wx.hideToast()
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
   }
+  
 })

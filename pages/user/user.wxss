@@ -62,4 +62,7 @@ page{
   bottom: -20px;
 }
 
-
+.smallTips{
+  font-size: 14px;
+  color: #909399
+}

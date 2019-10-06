@@ -8,3 +8,7 @@
 <view wx:if="{{statistics.male+statistics.female!=0}}" class="inputContain">女生: {{statistics.female}} 人</view>
 <view wx:if="{{statistics.arrangeRoom+statistics.noArrangeRoom!=0}}" class="inputContain">需要安排房间: {{statistics.arrangeRoom}} 人</view>
 <view wx:if="{{statistics.arrangeRoom+statistics.noArrangeRoom!=0}}" class="inputContain">无需安排房间: {{statistics.noArrangeRoom}} 人</view>
+
+<view class="confirmBtn" bindtap="downloadExcel">下载并打开Excel文件</view>
+
+<include src="/components/message/message.wxml"></include>

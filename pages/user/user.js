@@ -14,7 +14,8 @@ Page({
     meetingCode:"",
     QRImg:"",
     greetings:null,
-    canNavgateTo:true
+    canNavgateTo:true,
+    copyText:""
   },
 
   /**
@@ -38,7 +39,7 @@ Page({
       url: app.globalData.url + '/meeting/getByOrganizer',
       data:{
         page:0,
-        id:this.data.user.id
+        id:that.data.user.id
       },
       success: res=> {
         console.log(res);
@@ -62,8 +63,9 @@ Page({
     this.setData({
       showCModal:true,
       meetingCode: item.id,
-      QRImg: app.globalData.url + "/qrcode/get?" + "data=%7B\"id\":\""+item.id+"\",\"Identifier\":\"NCUMeeting\"%7D"
+      QRImg: app.globalData.url + "/qrcode/get?" + "data=%7B\"id\":\""+item.id+"\",\"Identifier\":\"NCUMeeting\"%7D",
     })
+    this.data.copyText = "#开会啦#长按复制此条消息，打开#开会啦#微信小程序，即可快速加入会议#id="+item.id+"#开会啦#";
   },
   bindtoDetials(e){
     var that = this;
@@ -83,5 +85,13 @@ Page({
   },
   cancelCModel(){
     this.data.canNavgateTo = true;
+  },
+  bindCopyText(){
+    var data = this.data.copyText
+    wx.setClipboardData({
+      data: data,
+      success:res=>{
+      }
+    })
   }
 })

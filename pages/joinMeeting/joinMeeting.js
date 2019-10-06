@@ -15,7 +15,9 @@ Page({
     nickName: null,
     meetingList:null,
     canAttend:true,
-    greetings:null
+    greetings:null,
+    inputID:false,
+    meetingID:""
   },
 
   /**
@@ -28,6 +30,7 @@ Page({
       greetings:greetings
     }),
       this.getOpenId()
+      this.getCopy();
   },
   onShow: function(){
     if(app.globalData.openID!=null){
@@ -88,7 +91,8 @@ Page({
             showCModal: true,
             modalTitle: "扫描成功！",
             modalContain: contain,
-            canAttend:true
+            canAttend:true,
+            inputID: false
           })
         }
       },
@@ -96,6 +100,15 @@ Page({
     })
   },
   modalConfirm() {
+    // 如果当前弹出的是inputid模态框
+    if(this.data.inputID === true){
+      if(this.data.meetingID ===""){
+        message.showMessage(this,"warning","请输入ID");
+        return;
+      }
+      this.showMeetingDetails(this.data.meetingID);
+      return;
+    }
     if(this.data.canAttend===false)
     return;
     var that = this
@@ -157,7 +170,43 @@ Page({
       showCModal:true,
       canAttend:false,
       modalTitle: "当前会议无法加入！",
-      modalContain:contain
+      modalContain:contain,
+      inputID:false
+    })
+  },
+
+  // 输入id
+  bindInputID(){
+    this.setData({
+      showCModal:true,
+      modalTitle:"输入会议ID",
+      modalContain:"",
+      inputID:true
+    })
+  },
+  inputID(e){
+    this.data.meetingID = e.detail.value
+  },
+
+// 获取剪贴板的内容
+  getCopy(){
+    var that = this;
+    wx.getClipboardData({
+      success:res=>{
+        console.log(res.data);
+        var copyData = res.data;
+        var data2 = copyData.substring(36,51);
+        console.log(data2)
+        if(data2.substring(0,3) === "id="){
+          that.showMeetingDetails(data2.substring(3));
+          wx.setClipboardData({
+            data: ' ',
+            success:res=>{
+              wx.hideToast();
+            }
+          })
+        }
+      }
     })
   }
 })

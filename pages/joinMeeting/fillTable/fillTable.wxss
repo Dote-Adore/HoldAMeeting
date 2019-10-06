@@ -13,7 +13,7 @@
 
 } */
 .meetingDetails#introduction{
-  font-size: 14px;
+  font-size: 16px;
   color: #909399;
   margin-bottom: 20px;
 

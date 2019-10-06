@@ -27,11 +27,16 @@
     </view>
   </view>
   <view class="bottomBtnDiv">
-    <view class="RadiusBtn" bindtap="bindScanQRCode"><image src="/resoures/icon/QR-code.png"></image>
+  <view class="bottonItem">
+    <view class="RadiusBtn" bindtap="bindScanQRCode"><image src="/resoures/icon/QR-code.png"></image></view>
+  </view>
+ <view class="bottonItem">
+    <view class="RadiusBtn" bindtap="bindInputID"><image src="/resoures/icon/id.png"></image></view>
     </view>
   </view>
 </view>
 
 <include src="/components/message/message.wxml"></include>
-
-<c-modal bindtapconfirm="modalConfirm" title="{{modalTitle}}"  contain="{{modalContain}}" showCModal="{{showCModal}}" containCenter="{{false}}"/>
+<c-modal bindtapconfirm="modalConfirm" title="{{modalTitle}}"  contain="{{modalContain}}" showCModal="{{showCModal}}" containCenter="{{false}}">
+<input type="number" wx:if="{{inputID}}" bindinput="inputID" class="inputID"></input>
+</c-modal>

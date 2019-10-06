@@ -1,5 +1,7 @@
 // pages/user/meetingDetails/meetingDetails.js
 const app = getApp()
+var message = require("../../../components/message/message.js");
+
 Page({
 
   /**
@@ -52,6 +54,26 @@ Page({
 
       }
     })
+  },
+  downloadExcel(){
+    wx.showLoading({
+      title: '正在下载...',
+    })
+    var meetingInfo = this.data.meetingInfo
+    wx.downloadFile({
+      url: app.globalData.url + "/meeting/exportExc?meetingID=" + meetingInfo.id,
+      filePath:wx.env.USER_DATA_PATH+"/dowloadExcel.xls",
+      success:res=>{
+        message.showMessage(this, "success", "下载成功！");
+        wx.hideLoading();
+        const filePath = res.filePath;
+        wx.openDocument({
+          filePath: filePath,
+          success:res=>{
+            console.log("打开成功");
+          }
+        })
+      }
+    })
   }
-
 })

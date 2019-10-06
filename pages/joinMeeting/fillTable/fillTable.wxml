@@ -2,7 +2,7 @@
   <view class="meetingDetailsDiv">
 <view class="meetingDetails">于<label class="color-blue"> {{meetingDetails.meetTimeFormat}} </label>，在<label class="color-blue"> {{meetingDetails.address}} </label>开展会议</view>
 <view class="meetingDetails" id="organizerName">由{{meetingDetails.organizerName}}发起</view>
-<view class="meetingDetails" id="introduction" style="margin:10px 0 10px 0">{{meetingDetails.introduction}}</view>
+<view class="meetingDetails" id="introduction" style="margin:10px 0 10px 0">会议简介：{{meetingDetails.introduction}}</view>
 </view>
 
 
@@ -29,8 +29,8 @@
 
 <view wx:if="{{meetingDetails.options.aIDNum}}" class="inputContain">
   <view class="inputTitle">
-    <text style="color:red" type="idcard">* </text>身份证号:</view>
-  <input data-type="aIDNum" bindinput="inputForm"></input>
+    <text style="color:red" >* </text>身份证号:</view>
+  <input data-type="aIDNum" type="idcard" maxlength="18" bindinput="inputForm"></input>
 </view>
 
 

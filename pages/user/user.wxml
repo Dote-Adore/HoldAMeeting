@@ -6,6 +6,7 @@
   <view class='time' wx:if="{{meetingList!=null&&meetingList[0]===undefined}}">
     当前暂无会议，按下方的按钮去参加一个会议吧！
   </view>
+  <view wx:else class="smallTips">tips:长按可分享会议</view>
   <!-- <view class="time">今日会议</view> -->
   <view wx:for="{{meetingList}}">
     <view class="meettingCard"  data-index="{{index}}"bindtap="bindtoDetials"  bindlongtap="bindShowQRCode">
@@ -32,4 +33,6 @@
 </view>
 
 
-<c-modal bindtapCancel="cancelCModel" bindtapconfirm="cancelCModel" containCenter="true" contain="ID:{{meetingCode}}" title="分享会议" imageSrc="{{QRImg}}" showCModal="{{showCModal}}"/>
+<c-modal bindtapCancel="cancelCModel" bindtapconfirm="cancelCModel" containCenter="true" contain="ID:{{meetingCode}}" title="分享会议" imageSrc="{{QRImg}}" showCModal="{{showCModal}}">
+<text bindlongtap="bindCopyText" style="text-align:center;color:#606266">长按此处复制口令，发送给他人即可快速分享会议噢~</text>
+</c-modal>

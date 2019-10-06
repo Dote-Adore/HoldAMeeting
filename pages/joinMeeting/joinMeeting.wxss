@@ -1,2 +1,7 @@
 /* pages/joinMeeting/joinMeeting.wxss */
 @import "/pages/user/user.wxss";
+.inputID{
+  border: solid 1px #DCDFE6;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
