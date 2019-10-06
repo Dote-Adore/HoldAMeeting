@@ -45,8 +45,8 @@ App({
     windowWidth: null,
     navHeight: null,
     userInfo: null,
-    url1: "https://www.ncutradingplatform.top/holdmeeting",
-    url: "http://192.168.1.108:8080/MidTermWork_war_exploded",
+    url: "https://www.ncutradingplatform.top/holdmeeting",
+    url1: "http://192.168.1.108:8080/MidTermWork_war_exploded",
     user:null,
     openID:null
   }

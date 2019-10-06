@@ -39,7 +39,7 @@ Page({
       url: app.globalData.url + '/meeting/getByOrganizer',
       data:{
         page:0,
-        id:that.data.user.id
+        id:this.data.user.id
       },
       success: res=> {
         console.log(res);
@@ -87,7 +87,7 @@ Page({
     this.data.canNavgateTo = true;
   },
   bindCopyText(){
-    var data = this.data.copyText
+    var data = that.data.copyText
     wx.setClipboardData({
       data: data,
       success:res=>{
